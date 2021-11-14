@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/zhubito/rick-and-morty-app/static/css/main.252cd96d.chunk.css",
+    "main.js": "/zhubito/rick-and-morty-app/static/js/main.c503c832.chunk.js",
+    "main.js.map": "/zhubito/rick-and-morty-app/static/js/main.c503c832.chunk.js.map",
+    "runtime-main.js": "/zhubito/rick-and-morty-app/static/js/runtime-main.ab52fc9d.js",
+    "runtime-main.js.map": "/zhubito/rick-and-morty-app/static/js/runtime-main.ab52fc9d.js.map",
+    "static/js/2.443c4ef9.chunk.js": "/zhubito/rick-and-morty-app/static/js/2.443c4ef9.chunk.js",
+    "static/js/2.443c4ef9.chunk.js.map": "/zhubito/rick-and-morty-app/static/js/2.443c4ef9.chunk.js.map",
+    "index.html": "/zhubito/rick-and-morty-app/index.html",
+    "static/css/main.252cd96d.chunk.css.map": "/zhubito/rick-and-morty-app/static/css/main.252cd96d.chunk.css.map",
+    "static/js/2.443c4ef9.chunk.js.LICENSE.txt": "/zhubito/rick-and-morty-app/static/js/2.443c4ef9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab52fc9d.js",
+    "static/js/2.443c4ef9.chunk.js",
+    "static/css/main.252cd96d.chunk.css",
+    "static/js/main.c503c832.chunk.js"
+  ]
+}
