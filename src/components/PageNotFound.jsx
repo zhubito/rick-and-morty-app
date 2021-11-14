@@ -13,7 +13,7 @@ const PageNotFound = () => {
       </Link>
       <Link className="nav-link" to="/">
         <button type="button" className="btn buttonHoum">
-          Volver al inicio
+          Volver al Inicio
         </button>
       </Link>
     </div>
