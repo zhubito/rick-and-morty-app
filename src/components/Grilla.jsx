@@ -3,19 +3,12 @@ import Cards from "./Cards";
 import Paginador from "./Paginador";
 
 const Grilla = (props) => {
-  const {
-    nombreFiltro,
-    generoFiltro,
-    estadoFiltro,
-    filtro,
-    setFiltro,
-    pagina,
-    setPagina,
-  } = props;
+  const { parametrosFiltro, filtro, setFiltro, pagina, setPagina } = props;
 
   const [results, setResults] = useState(null);
   const [info, setInfo] = useState(null);
   const [sinResultados, setSinResultados] = useState(false);
+  const [errorAPI, setErrorAPI] = useState(false);
 
   const url = "https://rickandmortyapi.com/api/character";
 
@@ -28,17 +21,31 @@ const Grilla = (props) => {
           return;
         }
         setSinResultados(false);
+        setErrorAPI(false);
         setInfo(personajes.info);
         setResults(personajes.results);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        setErrorAPI(true);
+        console.log(e);
+      });
   }, [filtro]);
 
   const cambiaPagina = (pagina) => {
-    let filter = `?page=${pagina}${nombreFiltro}${generoFiltro}${estadoFiltro}`;
+    let filter = `?page=${pagina}${parametrosFiltro.nombre}${parametrosFiltro.genero}${parametrosFiltro.estado}`;
     setPagina(pagina);
     setFiltro(filter);
   };
+
+  if (errorAPI === true) {
+    return (
+      <div className="container text-center mt-5">
+        <h1 className="colorHoum">
+          Lo sentimos, no pudimos acceder al Servidor...
+        </h1>
+      </div>
+    );
+  }
 
   if (sinResultados === true) {
     return (

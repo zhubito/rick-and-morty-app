@@ -19,34 +19,18 @@ const Paginador = (props) => {
   return (
     <nav className="m-3">
       <ul className="pagination justify-content-center">
-        <li className={info.prev !== null ? "page-item" : "page-item disabled"}>
-          <span
-            className={
-              info.prev !== null
-                ? "page-link colorHoum"
-                : "page-link colorDisabled"
-            }
-            onClick={() => {
-              cambiaPagina(1);
-            }}
-          >
-            {"<<"}
-          </span>
-        </li>
-        <li className={info.prev !== null ? "page-item" : "page-item disabled"}>
-          <span
-            className={
-              info.prev !== null
-                ? "page-link colorHoum"
-                : "page-link colorDisabled"
-            }
-            onClick={() => {
-              cambiaPagina(paginaInt - 1);
-            }}
-          >
-            {"<"}
-          </span>
-        </li>
+        <BotonPaginado
+          condicional={info.prev}
+          valorPagina={1}
+          cambiaPagina={cambiaPagina}
+          elemento={"<<"}
+        />
+        <BotonPaginado
+          condicional={info.prev}
+          valorPagina={paginaInt - 1}
+          cambiaPagina={cambiaPagina}
+          elemento={"<"}
+        />
         {arraypaginas.map((pag) =>
           paginaInt === pag ? (
             <li className="page-item active" key={pag}>
@@ -65,34 +49,40 @@ const Paginador = (props) => {
             </li>
           )
         )}
-        <li className={info.next !== null ? "page-item" : "page-item disabled"}>
-          <p
-            className={
-              info.next !== null
-                ? "page-link colorHoum"
-                : "page-link colorDisabled"
-            }
-            onClick={() => cambiaPagina(paginaInt + 1)}
-          >
-            {">"}
-          </p>
-        </li>
-        <li className={info.next !== null ? "page-item" : "page-item disabled"}>
-          <span
-            className={
-              info.next !== null
-                ? "page-link colorHoum"
-                : "page-link colorDisabled"
-            }
-            onClick={() => {
-              cambiaPagina(info.pages);
-            }}
-          >
-            {">>"}
-          </span>
-        </li>
+        <BotonPaginado
+          condicional={info.next}
+          valorPagina={paginaInt + 1}
+          cambiaPagina={cambiaPagina}
+          elemento={">"}
+        />
+        <BotonPaginado
+          condicional={info.next}
+          valorPagina={info.pages}
+          cambiaPagina={cambiaPagina}
+          elemento={">>"}
+        />
       </ul>
     </nav>
+  );
+};
+
+const BotonPaginado = (props) => {
+  const { condicional, valorPagina, cambiaPagina, elemento } = props;
+  return (
+    <li className={condicional !== null ? "page-item" : "page-item disabled"}>
+      <span
+        className={
+          condicional !== null
+            ? "page-link colorHoum"
+            : "page-link colorDisabled"
+        }
+        onClick={() => {
+          cambiaPagina(valorPagina);
+        }}
+      >
+        {elemento}
+      </span>
+    </li>
   );
 };
 
